@@ -29,6 +29,8 @@ jobs:
     steps:
     - checkout: self
       clean: false
+    - script: echo Hello, world!
+    
     - task: CredScan@3
       displayName: Run Credential Scanner
       inputs:
@@ -37,9 +39,4 @@ jobs:
     - task: PublishSecurityAnalysisLogs@3
       displayName: Publish Guardian Artifacts
       
-    steps:
-    - script: echo Hello, world!
-    - script: echo '$(New variable group 06-Jul)' # uses macro syntax
-    - script: echo '$(Name1)'
-      displayName: 'Run a one-line script'
     
