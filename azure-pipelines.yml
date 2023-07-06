@@ -11,7 +11,7 @@ pool:
 
 steps:
 - script: echo Hello, world!
-- script: echo $(poolName).Name # uses macro syntax
+- script: echo $(poolName) # uses macro syntax
   displayName: 'Run a one-line script'
 
 - script: |
