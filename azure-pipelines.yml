@@ -21,8 +21,8 @@ schedules:
     - master
 
 jobs:
-  - job: Run Credential Scan Daily Job 
-    displayName: Run Credential Scan Daily
+  - job: Run_Credential_Scan_Daily_Job 
+    displayName: Run_Credential_Scan_Daily
     timeoutInMinutes: 360
     pool:
       vmImage: ubuntu-latest
