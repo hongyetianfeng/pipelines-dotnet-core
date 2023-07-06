@@ -15,7 +15,7 @@ pool:
 
 steps:
 - script: echo Hello, world!
-- script: echo '$(Name1)' # uses macro syntax
+- script: echo '$(New variable group 06-Jul)' # uses macro syntax
   displayName: 'Run a one-line script'
 
 - script: |
