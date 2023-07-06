@@ -13,13 +13,33 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-- script: echo '$(New variable group 06-Jul)' # uses macro syntax
-- script: echo '$(Name1)'
-  displayName: 'Run a one-line script'
+schedules:
+- cron: "0 0 * * *"
+  displayName: "Daily build"
+  branches:
+    include:
+    - master
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+  - job: Run Credential Scan Daily Job 
+    displayName: Run Credential Scan Daily
+    timeoutInMinutes: 360
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - checkout: self
+      clean: false
+    - task: CredScan@3
+      displayName: Run Credential Scanner
+      inputs:
+        debugMode: false
+        folderSuppression: false
+    - task: PublishSecurityAnalysisLogs@3
+      displayName: Publish Guardian Artifacts
+      
+    steps:
+    - script: echo Hello, world!
+    - script: echo '$(New variable group 06-Jul)' # uses macro syntax
+    - script: echo '$(Name1)'
+      displayName: 'Run a one-line script'
+    
