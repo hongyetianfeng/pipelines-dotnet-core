@@ -4,8 +4,8 @@
 # https://aka.ms/yaml
 
 
-variables:
-- group: New variable group 06-Jul
+# variables:
+# - group: New variable group 06-Jul
 
 trigger:
 - master
