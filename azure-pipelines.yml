@@ -4,8 +4,8 @@
 # https://aka.ms/yaml
 
 
-# variables:
-# - group: New variable group 06-Jul
+variables:
+- group: New variable group 06-Jul
 
 trigger:
 - master
@@ -16,7 +16,7 @@ pool:
 steps:
 - script: echo Hello, world!
 - script: echo '$(New variable group 06-Jul)' # uses macro syntax
-# - script: echo '$(Name1)'
+- script: echo '$(Name1)'
   displayName: 'Run a one-line script'
 
 - script: |
